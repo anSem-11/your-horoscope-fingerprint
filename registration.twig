@@ -1,0 +1,44 @@
+{% extends "/page/landings/fingerprint/base.twig" %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+  <div class="fingerprint">
+
+    <h2 class="fingerprint__subtitle">
+      Your <span>personal</span> prediction’s here!
+      <br />
+      Subscribe and get it now!
+    </h2>
+
+      <div class="fingerprint__join">
+        <form class="js-form-submit"  method="post" action="#" novalidate>
+          <div class="just-validate-tooltip-container">
+            <input class="fingerprint__input js-input" type="text" placeholder="Enter your email" data-validate-field="email" name="email">
+            <div class="fingerprint__input-error js-error-email-sign-up"></div>
+          </div>
+          <button type="submit" class="fingerprint__btn fingerprint__btn-email js-submit-btn">Subscribe and get!</button>
+          <p class="fingerprint__text fingerprint__text-notice">
+            This site is protected by reCAPTCHA and the Google
+            <a hreflang="en-us" target="_blank" href="https://policies.google.com/privacy">Privacy Policy</a> and <a hreflang="en-us" target="_blank" href="https://policies.google.com/terms">Terms of Service</a> apply.
+          </p>
+        </form>
+      </div>
+
+    {% include "page/landings/fingerprint/components/_article.twig" %}
+
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+      var urlApiSignUp = '{{ path('api:test') }}';
+  </script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js') }}"></script>
+  {% if app.getEnvironment() == 'dev' %}
+      <script src="{{ asset('landings/fingerprint/js/src/registration.js') }}"></script>
+  {% else %}
+      <script src="{{ asset('landings/fingerprint/js/build/registration.min.js') }}"></script>
+  {% endif %}
+{% endblock %}

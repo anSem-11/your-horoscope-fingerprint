@@ -1,0 +1,38 @@
+@media screen and (max-width: 750px) {
+  .footer {
+    &-wrap {
+      flex-direction: column;
+      padding: 25px 0;
+    }
+    &-links {
+      margin-bottom: 15px;
+    }
+    &__copyright {
+      order: 2;
+    }
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .footer {
+    &-wrap {
+      max-width: 300px;
+    }
+    &-links {
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      &__item {
+        margin-bottom: 15px;
+        &[data-id='4'] {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .facescan {
+    padding: 0 15px;
+  }
+}

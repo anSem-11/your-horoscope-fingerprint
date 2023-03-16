@@ -1,0 +1,43 @@
+{% extends "/page/landings/fingerprint/base.twig" %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="fingerprint">
+
+        <h2 class="fingerprint__subtitle">Thanks for joining us!
+            <br/>
+            Your <span>personal</span> prediction’s here!</h2>
+
+        <img class="fingerprint__prediction-img" src="/landings/fingerprint/img/prediction.png" />
+
+        <div class="fingerprint__prediction">
+            {{ app.request.cookies.get('prediction') }} 
+        </div>
+
+        <a href="{{ path('homepage') }}" class="fingerprint__btn">Continue</a>
+
+
+        <div class="fingerprint__prediction-text">
+            The confirmation email has been sent to your inbox. If you can't find it there, please check every folder, including Spam/Junk
+        </div>
+
+        {% include "page/landings/fingerprint/components/_article.twig" %}
+
+    </div>
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script> 
+    {% if app.getEnvironment() == 'dev' %}
+        <script src="{{ asset('landings/fingerprint/js/src/prediction.js') }}"></script>
+    {% else %}
+        <script src="{{ asset('landings/fingerprint/js/build/prediction.min.js') }}"></script>
+    {% endif %}
+{% endblock %}

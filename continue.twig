@@ -1,0 +1,32 @@
+{% extends "/page/landings/fingerprint/base.twig" %}
+
+
+{% block head %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="fingerprint">
+
+        <h2 class="fingerprint__subtitle">
+            Your <span>personal</span> prediction’s here!
+        </h2>
+        <p class="fingerprint__desc">
+            It’s still available
+        </p>
+        <p class="fingerprint__desc">
+            Click below to get it now
+        </p>
+
+        <img class="fingerprint__img" src="/landings/fingerprint/img/email.png"/>
+
+        <div class="fingerprint__btn-wrapper">
+            <a href="{{ path('landing:fingerprint:registration') }}" class="fingerprint__btn fingerprint__btn-email">Continue with email</a>
+        </div>
+
+        {% include "page/landings/fingerprint/components/_article.twig" %}
+
+    </div>
+
+{% endblock %}

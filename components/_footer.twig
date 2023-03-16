@@ -1,0 +1,15 @@
+<footer class="footer js-footer-anchor">
+    <div class="footer-wrap">
+        <div class="footer__copyright">Copyright &copy; {{ "now"|date("Y") }} your-horoscopes.com</div>
+        <div class="footer-links">
+            <a href="{{ path('about') }}" class="footer-links__item hover">About</a>
+            <a href="{{ path('contact') }}" class="footer-links__item hover">Contact Us</a>
+            <a href="{{ path('privacy') }}" class="footer-links__item hover">Privacy Policy</a>
+{#            {% if app.user %}#}
+{#                <a href="{{ path('logout') }}" class="footer-links__item hover">Logout</a>#}
+{#            {% else %}#}
+{#                <a href="{{ path('user:profile') }}" class="footer-links__item hover">Profile</a>#}
+{#            {% endif %}#}
+        </div>
+    </div>
+</footer>

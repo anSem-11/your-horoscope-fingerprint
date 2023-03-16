@@ -1,0 +1,103 @@
+{% set articles = [
+    {
+        title: "Aries",
+        date: "March 21 - April 19",
+        numbers: "18, 77, 83",
+        text: "Being the first sign of the zodiac, Aries' prime number is unsurprisingly one. Aries are known to strive for excellence in all their pursuits, allowing them to take on leadership roles and stand out from the crowd. As the ruling planet of the sign is Mars, Aries are characterized by their bravery, independence, fiery spirit, and adventurous nature. Other numbers associated with this sign include 18, 77, and 83.",
+    },
+    {
+        title: "Taurus",
+        date: "April 20 - May 20",
+        numbers: "5, 35, 57",
+        text: "Taureans, known for being natural builders of the zodiac, are associated with the number two, which is considered lucky for them. These individuals are characterized by their vigorous energy, patience, decisiveness, practicality, reliability, and grounded nature. The number two is a good fit for this sign since Taureans enjoy supporting others and working collaboratively. Additionally, other numbers associated with Taureans include 5, 35, and 57. ",
+    },
+    {
+        title: "Gemini",
+        date: "May 21 - June 20",
+        numbers: "66, 88, 14",
+        text: "In the Tarot, Gemini is the sixth major arc of lovers. It is also known that you are ruled by the planet Mercury, a chatty patron, which is numbered 8 in astrology. Create your twin for each of these numbers: 66 and 88 and, as a bonus, get their sum of 14.",
+    },
+    {
+        title: "Cancer",
+        date: "June 21 - July 22",
+        numbers: "7, 9, 63",
+        text: "Cancer, in the astrological field, is like a shell in its own right. Not surprisingly, it is ruled by the Moon, which prefers nighttime and shadows to the bright lights of midday. In the Tarot you are matched with the Chariot arc (7). Your moon number is 9. Cancer is a loner in life, so we won't be doubling or combining the numbers, except to multiply them, keeping the power of each one intact.",
+    },
+    {
+        title: "Leo",
+        date: "July 23 - August 22",
+        numbers: "6, 8, 48, 68, 86",
+        text: "Proud and confident Leo, a natural born winner who can't stand to lose. Not surprisingly, your major card in the Tarot is called Strength, and it is associated with the number 8. Your ruler in astrology is the Sun in all its glory (that's a six). You like big things, so fearlessly play with the big numbers 68 and 86 and multiply them (48).",
+    },
+    {
+        title: "Virgo",
+        date: "August 23 - September 22",
+        numbers: "72, 89, 98",
+        text: "Your organized and logical nature always requires facts and seeks regularity, rather than relying on intuition and luck. That's why your Tarot card is the cautious Hermit (number 9). Like the sign Gemini, you fall under the planetary influence of Mercury (8). Since you are very ambitious, your lucky numbers will be the maximum combinations of 98 and 89, as well as a multiple of 72.",
+    },
+    {
+        title: "Libra",
+        date: "September 23 - October 23",
+        numbers: "7, 11, 77",
+        text: "The most unpleasant situations in the life of a Libra are those in which they have to make a decision. They will hesitate forever! Libras never complicate anything, so even in terms of lucky numbers they choose the most proven way - they bet on what is given. The planet Venus is your ruler with the lucky number 7, and Justice, 11, is your arcana in the Tarot deck. Use 7, 11, and 77 as your lucky numbers.",
+    },
+    {
+        title: "Scorpio",
+        date: "October 24 - November 22",
+        numbers: "10, 13, 100",
+        text: "The most mystical of all signs, and you definitely believe it, even if you never admit it publicly. Surprise situation. Your planetary ruler, Pluto, has no number! It's worth calling it zero and letting you play with 100 and 10. Add to that your extra lucky number 13 (since your arcana in the Tarot is Death). Rub the noses of all those who are still superstitiously afraid of it.",
+    },
+    {
+        title: "Sagittarius",
+        date: "November 23 - December 21",
+        numbers: "4, 14, 56",
+        text: "Sagittarius is fun and reckless, won't listen to crazy ideas about lucky numbers, as he likes to play by his own rules! And yet... Jupiter, your generous ruler, is associated with the number 4, and your Tarot card, Moderation, with the number 14. Use 4 and 14 as your main lucky numbers, and if you feel like playing with them, multiply: 56.",
+    },
+    {
+        title: "Capricorn",
+        date: "December 22 - January 19",
+        numbers: "5, 18, 45",
+        text: "You just love the smell of money... So get used to winning only by using the power of your Tarot card, the Devil, number 15. And your planetary ruler, the steadfast Saturn, associated with the number 3. Multiply them to make 45, divide - hence 5, and put them together - 18 (an auspicious number in many cultures).",
+    },
+    {
+        title: "Aquarius",
+        date: "January 20 - February 19",
+        numbers: "1, 11, 17",
+        text: "You are mysterious and unique. This means that you are the symbol of the 17th major arcane, the Star, in the Tarot. And you are patronized by Uranus, which acts as number one. As an addition to this lucky number, you are the only one allowed to add the number of the angel - 11. However, the self-obsessed Aquarius needs to be careful - you can't win every day, so try your luck on weekends, Saturdays and Sundays.",
+    },
+    {
+        title: "Pisces",
+        date: "February 20 - March 20",
+        numbers: "16, 20, 36",
+        text: "A loving and romantic sign, you constantly need to pour out your feelings, not store them away. In the Tarot, Pisces is represented by the Twilight/Moon card, which is the 18th arcana. Neptune, number 2, is the patron planet that controls your urges. Add them together to make 20, subtract 16, and multiply by 36.",
+    },
+] %}
+
+<div class="articles js-article-block">
+    <div class="articles__image"></div>
+    <h2 class="articles__title">What Is the Lucky Number for Your Sign?</h2>
+    <div class="articles__desc">
+        Our world is made of numbers! Numbers are all around us. What number to bet on when you're testing your fate in a game or lottery? 
+        Or maybe you're choosing the right date for a wedding? Or maybe you're puzzling over the number of the apartment when you buy it? 
+        Or fate wants to give you a sign with a number that keeps popping up in your face? 
+        American energy experts and tarrologists give you a hint! Scroll and choose the sign to find out!
+    </div>
+    <div class="articles__content">
+        {% for article in articles %}
+            <div class="article close js-article-paragraph" data-id="">
+                <p><b>{{ article.title | raw }}</b></p>
+                <p>{{ article.date | raw }}</p>
+                <p class="article__nums">{{ article.numbers | raw }}</p>
+                <p>{{ article.text | raw }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% block script %}
+    {% if app.getEnvironment() == 'dev' %}
+        <script defer src="{{ asset('landings/fingerprint/js/src/article.js') }}"></script>
+    {% else %}
+        <script defer src="{{ asset('landings/fingerprint/js/build/article.min.js') }}"></script>
+    {% endif %}
+{% endblock %}

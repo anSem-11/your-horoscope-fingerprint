@@ -1,0 +1,111 @@
+{% extends "/page/landings/fingerprint/base.twig" %}
+
+
+{% set title = 'Your Astro Prediction' %}
+{% set description = 'Need a simple and straight-forward answer? Solve all your problems by asking our medium the torturing questions! Just press and hold the fingerprint' %}
+{% set keywords = 'you horoscope, your horoscope, my daily horoscope, my horoscope, prediction, online prediction, fingerpint prediction astrology' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="fingerprint">
+
+        <div class="js-group-1">
+            <div class="fingerprint__wrapper">
+                <div class="fingerprint__preloader" id="preloader">
+                    <svg class="fingerprint__preloader-ring" width="270" height ="270">
+                        <circle class="fingerpint__preloader-ring--circle" stroke="#e36480bf" stroke-width="5" cx="135" cy="135" r="120" fill="transparent"/>
+                    </svg>
+                </div>
+                <div class="fingerprint__description">
+                    <h1 class="fingerprint__title">YOUR <br><span>ASTRO</span> PREDICTION</h1>
+                    <p class="fingerprint__text">Ask our medium the torturing questions! <br/>
+                        Press and hold to share your vibes and get
+                        your personal astro prediction
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="js-group-2 topic hide">
+            <p class="fingerprint__text second-text">
+                Are you experiencing sleep problems or loss of appetite due to nervousness? 
+                Are you struggling to find a way out of a challenging situation? <br/>
+                If so, consider yourself lucky! <br/><br/>
+               <b>Our medium will solve your problems in several seconds - choose the topic!</b></p>
+            <div>
+                <ul class="topic__list">
+                    <li class="topic__item">
+                        <a class="topic__link love__link">
+                            <img class="fingerprint__img" src="../landings/fingerprint/img/love.png" alt="img"/>
+                            <p class="topic__title">Love <br/>Prediction</p>
+                        </a>
+                    </li>
+                    <li class="topic__item">
+                        <a class="topic__link daily__link">
+                            <img class="fingerprint__img" src="../landings/fingerprint/img/hands.png" alt="img"/>
+                            <p class="topic__title">Daily <br/>Prediction</p>
+                        </a>
+                    </li>
+                    <li class="topic__item">
+                        <a class="topic__link  chineese__link">
+                            <img class="fingerprint__img" src="../landings/fingerprint/img/ball.png" alt="img"/>
+                            <p class="topic__title">Chinese <br/>Prediction</p>
+                        </a>
+                    </li>
+                    <li class="topic__item">
+                        <a class="topic__link money__link">
+                            <img class="fingerprint__img" src="../landings/fingerprint/img/magic.png" alt="img"/>
+                            <p class="topic__title">Money <br/>Predicton</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="js-group-3 hide">
+
+            <h2 class="fingerprint__subtitle">
+                YOUR <span>ASTRO</span> PREDICTION IS READY!
+            </h2>
+            <p class="fingerprint__desc">
+                Follow the simple instructions to get it:
+            </p>
+            <ul class="fingerprint__desc-list">
+                <li class="fingerprint__desc-item">Tap on the button</li>
+                <li class="fingerprint__desc-item">Enter your email</li>
+                <li class="fingerprint__desc-item">Get your prediction</li>
+            </ul>
+            <p class="fingerprint__desc">
+                <span>Profit!</span>
+            </p>
+
+            <a href="{{ path('landing:fingerprint:continue') }}" class="fingerprint__btn">Get now!</a>
+
+        </div>
+
+
+        {% include "page/landings/fingerprint/components/_article.twig" %}
+
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script> 
+    {% if app.getEnvironment() == 'dev' %}
+        <script src="{{ asset('landings/fingerprint/js/src/preloader.js') }}"></script>
+        <script src="{{ asset('landings/fingerprint/js/src/prediction.js') }}"></script>
+    {% else %}
+        <script src="{{ asset('landings/fingerprint/js/build/preloader.min.js') }}"></script>
+        <script src="{{ asset('landings/fingerprint/js/build/prediction.min.js') }}"></script>
+    {% endif %}
+{% endblock %}
